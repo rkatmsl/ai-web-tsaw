@@ -8,11 +8,7 @@ from textwrap import dedent
 import time
 import os
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
-pg_pass = os.getenv("PG_PASS")
+pg_pass = st.secrets["postgres"]["PG_PASS"]
 
 db_url = "postgresql+psycopg2://postgres:{pg_pass}@database-1.czg44aga0cfb.ap-south-1.rds.amazonaws.com:5432/ai"
 # db_url = "postgresql+psycopg://ai:ai@localhost:5432/ai"
