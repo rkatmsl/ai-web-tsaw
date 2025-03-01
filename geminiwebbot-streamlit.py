@@ -9,9 +9,7 @@ import time
 import os
 
 pg_pass = st.secrets["PG_PASS"]
-print(pg_pass)
-
-db_url = "postgresql+psycopg2://postgres:{pg_pass}@database-1.czg44aga0cfb.ap-south-1.rds.amazonaws.com:5432/ai"
+db_url = f"postgresql+psycopg2://postgres:{pg_pass}@database-1.czg44aga0cfb.ap-south-1.rds.amazonaws.com:5432/ai"
 # db_url = "postgresql+psycopg://ai:ai@localhost:5432/ai"
 
 # Initialize KnowledgeBase and Agent
