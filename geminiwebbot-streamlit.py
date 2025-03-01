@@ -8,8 +8,13 @@ from textwrap import dedent
 import time
 import os
 
-# Database URL and other configurations
-db_url = "postgresql+psycopg2://postgres:c2FNJ5zNMGNZb2svEFc4@database-1.czg44aga0cfb.ap-south-1.rds.amazonaws.com:5432/ai"
+from dotenv import load_dotenv
+
+load_dotenv()
+
+pg_pass = os.getenv("PG_PASS")
+
+db_url = "postgresql+psycopg2://postgres:{pg_pass}@database-1.czg44aga0cfb.ap-south-1.rds.amazonaws.com:5432/ai"
 # db_url = "postgresql+psycopg://ai:ai@localhost:5432/ai"
 
 # Initialize KnowledgeBase and Agent
