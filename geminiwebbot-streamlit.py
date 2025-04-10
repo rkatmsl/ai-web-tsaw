@@ -9,20 +9,21 @@ import time
 import os
 
 pg_pass = st.secrets["PG_PASS"]
+
 db_url = f"postgresql+psycopg2://postgres:{pg_pass}@database-1.czg44aga0cfb.ap-south-1.rds.amazonaws.com:5432/ai"
 # db_url = "postgresql+psycopg://ai:ai@localhost:5432/ai"
 
 # Initialize KnowledgeBase and Agent
 knowledge_base = WebsiteKnowledgeBase(
-    urls=["https://tsaw.tech/", "https://tsaw.tech/drone-delivery-at-hospitals", "https://tsaw.tech/on-demand-drone-delivery", "https://tsaw.tech/fleet#ADARNA", "https://tsaw.tech/fleet#MARUTHI", "https://tsaw.tech/dcis", "https://tsaw.tech/utm", "https://log.tsaw.tech/", "https://tsaw.tech/hypi", "https://tsaw.tech/partnerships", "https://tsaw.tech/blogs"],
-    max_links=18,
+    urls=["https://www.tsaw.tech"],
+    max_links=700,
     vector_db=PgVector(
         table_name="tsaw_kb",
         db_url=db_url,
         embedder=GeminiEmbedder(),
     ),
 )
-# knowledge_base.load(recreate=True)  # Comment out after first run
+knowledge_base.load(recreate=True)
 
 # Agent description and instructions
 agent = Agent(
