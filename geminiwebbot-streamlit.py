@@ -10,7 +10,7 @@ import os
 
 pg_pass = st.secrets["PG_PASS"]
 
-db_url = "postgresql+psycopg2://postgres:yXx97RNspxuFeZYlL9Fl@database-1.czg44aga0cfb.ap-south-1.rds.amazonaws.com:5432/ai"
+db_url = f"postgresql+psycopg2://postgres:{pg_pass}@database-1.czg44aga0cfb.ap-south-1.rds.amazonaws.com:5432/ai"
 
 if 'messages' not in st.session_state:
     st.session_state['messages'] = []
